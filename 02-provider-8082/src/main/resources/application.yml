@@ -1,0 +1,32 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: msc-provider
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      # 指定要连接的Eureka服务中心
+      # defaultZone: http://localhost:8000/eureka
+      defaultZone: http://eureka8100.com:8100/eureka,http://eureka8200.com:8200/eureka,http://eureka8300.com:8300/eureka
+
+logging:
+  # 设置日志输出格式
+  pattern:
+    console: level-%level %msg%n
+  level:
+    root: info
+    com.abc: debug
+
+# Eureka工作界面中instance-id处链接的信息
+info:
+  company.name: www.abc.com
+  company.addr: China Beijing
+  company.tel: 12345678
+  app.name: abc-msc
+  app.desc: mic-server-cloud
+  author: abc

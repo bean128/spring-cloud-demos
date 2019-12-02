@@ -1,0 +1,42 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: msc-consumer
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      # 指定要连接的Eureka服务中心
+      defaultZone: http://localhost:8000/eureka
+    #eureka client刷新本地缓存时间
+    #默认30s
+    #registry-fetch-interval-seconds: 5
+feign:
+  client:
+    config:
+      default:
+        # Feign客户端连接提供者的超时时限，网络环境起决定作用
+        connectTimeout: 5000
+        # Feign客户端从调用提供者到获取返回结果，这个间隔的超时时限，提供者运算时间起决定作用
+        readTimeout: 5000
+
+logging:
+  # 设置日志输出格式
+  pattern:
+    console: level-%level %msg%n
+  level:
+    root: info
+    com.abc: debug
+
+# Eureka工作界面中instance-id处链接的信息
+info:
+  company.name: www.abc.com
+  company.addr: China Beijing
+  company.tel: 12345678
+  app.name: abc-msc
+  app.desc: mic-server-cloud
+  author: abc
